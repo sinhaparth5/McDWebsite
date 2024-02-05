@@ -150,8 +150,7 @@
         const orderComments = document.getElementById('order-comments').value;
 
         if (!orderComments) {
-            alert('Please add your comments before ordering.');
-            return;
+            return orderComments == "N/A";
         }
 
         const itemsText = selectedItems.length > 0 ? `Selected Items: ${selectedItems.join('\n')}\n` : '';
