@@ -153,7 +153,7 @@
             return orderComments == "N/A";
         }
 
-        const itemsText = selectedItems.length > 0 ? `Selected Items: ${selectedItems.join('\n')}\n` : '';
+        const itemsText = selectedItems.length > 0 ? `Selected Items:\n ${selectedItems.join('\n')}\n` : '';
         const message = `${itemsText}Comments: ${orderComments}`;
 
         const toNumbers = ['+447306179724', '+447469690898', '+447706585678']; // Add more numbers as needed
