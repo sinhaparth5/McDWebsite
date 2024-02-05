@@ -96,9 +96,14 @@
             <p>Regular Hot Chocolate</p>
         </div>
 
+        <div id="selected-items">
+            <h2>Selected Items</h2>
+            <ul id="selected-items-list"></ul>
+            <button onclick="clearSelectedItems()">Clear Selected Items</button>
+        </div>
+
         <textarea id="order-comments" placeholder="Add your comments"></textarea>
         <div class="order-button" onclick="orderNow()">Order Now</div>
-
     </div>
 
     <script>
@@ -106,7 +111,37 @@
 
         function addItem(itemName) {
             selectedItems.push(itemName);
+            updateSelectedItemsList();
             alert(`Added ${itemName} to your order.`);
+        }
+
+        function updateSelectedItemsList() {
+            const selectedItemsList = document.getElementById('selected-items-list');
+            selectedItemsList.innerHTML = ''; // Clear previous list
+
+            selectedItems.forEach((item, index) => {
+                const listItem = document.createElement('li');
+                listItem.textContent = item;
+
+                const removeButton = document.createElement('button');
+                removeButton.textContent = 'Remove';
+                removeButton.onclick = function () {
+                    removeItem(index);
+                };
+
+                listItem.appendChild(removeButton);
+                selectedItemsList.appendChild(listItem);
+            });
+        }
+
+        function removeItem(index) {
+            selectedItems.splice(index, 1);
+            updateSelectedItemsList();
+        }
+
+        function clearSelectedItems() {
+            selectedItems.length = 0;
+            updateSelectedItemsList();
         }
 
         function sendMessage(toNumbers, message) {
@@ -147,7 +182,7 @@
             const itemsText = selectedItems.length > 0 ? `Selected Items:\n${selectedItems.join('\n')}\n` : '';
             const message = `${itemsText}${commentsText}`;
 
-            const toNumbers = ['+447306179724', '+447469690897']; // Add more numbers as needed
+            const toNumbers = ['+447306179724', '+44746969089']; // Add more numbers as needed
             sendMessage(toNumbers, message);
 
             // Clear selected items after placing the order
