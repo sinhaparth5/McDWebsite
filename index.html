@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .contact-card {
+            margin: 20px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .contact-card img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+
+<div id="contacts">
+    <div class="contact-card" onclick="sendMessage(['+447306179724','+447706585678'], 'I like to place an order for a regular Latte, please.')">
+        <img src="./assets/latte.jpg" alt="Contact 1">
+        <p>Regular Latte</p>
+    </div>
+
+    <div class="contact-card" onclick="sendMessage('+0987654321', 'I like to place an order for a regular Cappuccino, please.')">
+        <img src="assets/cappuccino.jpg" alt="Contact 3">
+        <p>Regular Cappuccino</p>
+    </div>
+    <div class="contact-card" onclick="sendMessage('+0987654321', 'I like to place an order for a regular White Coffee, please.')">
+        <img src="assets/white-coffee.jpg" alt="Contact 4">
+        <p>Regular White Coffee</p>
+    </div>
+    <div class="contact-card" onclick="sendMessage('+0987654321', 'I like to place an order for a regular Black Coffee, please.')">
+        <img src="assets/black-coffee.jpg" alt="Contact 5">
+        <p>Regular Black Coffee</p>
+    </div>
+    <div class="contact-card" onclick="sendMessage('+0987654321', 'I like to place an order for a regular Expresso, please.')">
+        <img src="assets/expresso.jpg" alt="Contact 6">
+        <p>Regular Expresso</p>
+    </div>
+    <div class="contact-card" onclick="sendMessage('+0987654321', 'I like to place an order for a regular Flat White, please.')">
+        <img src="assets/flat-white.jpg" alt="Contact 7">
+        <p>Regular Flat White</p>
+    </div>
+    <div class="contact-card" onclick="sendMessage('+0987654321', 'I like to place an order for a regular Tea, please.')">
+        <img src="assets/tea.jpg" alt="Contact 8">
+        <p>Regular Tea</p>
+    </div>
+    <!-- Add more contact cards as needed -->
+</div>
+
+<script>
+    function sendMessage(toNumbers, message) {
+        // Replace these with your Twilio credentials
+        const accountSid = 'ACe65d10873d6c4b2d66720fa97997f239';
+        const authToken = 'bc624a87b059491e1d0dfd86f01fc4c9';
+        const twilioNumber = '+19897471793';
+
+        toNumbers.forEach(toNumber => {
+            fetch(`https://api.twilio.com/2010-04-01/Accounts/${accountSid}/Messages.json`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'Authorization': 'Basic ' + btoa(`${accountSid}:${authToken}`)
+                },
+                body: new URLSearchParams({
+                    'To': toNumber,
+                    'From': twilioNumber,
+                    'Body': message
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Message sent successfully to', toNumber, ':', data);
+            })
+            .catch(error => {
+                console.error('Error sending message to', toNumber, ':', error);
+            });
+        });
+
+        alert('Messages sent successfully!');
+    }
+</script>
+
+</body>
+</html>
