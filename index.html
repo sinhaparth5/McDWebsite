@@ -35,27 +35,27 @@
         <p>Regular Latte</p>
     </div>
 
-    <div class="contact-card" onclick="sendMessage('+0987654321', 'I like to place an order for a regular Cappuccino, please.')">
+    <div class="contact-card" onclick="sendMessage(['+447306179724','+447706585678'], 'I like to place an order for a regular Cappuccino, please.')">
         <img src="assets/cappuccino.jpg" alt="Contact 3">
         <p>Regular Cappuccino</p>
     </div>
-    <div class="contact-card" onclick="sendMessage('+0987654321', 'I like to place an order for a regular White Coffee, please.')">
+    <div class="contact-card" onclick="sendMessage(['+447306179724','+447706585678'], 'I like to place an order for a regular White Coffee, please.')">
         <img src="assets/white-coffee.jpg" alt="Contact 4">
         <p>Regular White Coffee</p>
     </div>
-    <div class="contact-card" onclick="sendMessage('+0987654321', 'I like to place an order for a regular Black Coffee, please.')">
+    <div class="contact-card" onclick="sendMessage(['+447306179724','+447706585678'], 'I like to place an order for a regular Black Coffee, please.')">
         <img src="assets/black-coffee.jpg" alt="Contact 5">
         <p>Regular Black Coffee</p>
     </div>
-    <div class="contact-card" onclick="sendMessage('+0987654321', 'I like to place an order for a regular Expresso, please.')">
+    <div class="contact-card" onclick="sendMessage(['+447306179724','+447706585678'], 'I like to place an order for a regular Expresso, please.')">
         <img src="assets/expresso.jpg" alt="Contact 6">
         <p>Regular Expresso</p>
     </div>
-    <div class="contact-card" onclick="sendMessage('+0987654321', 'I like to place an order for a regular Flat White, please.')">
+    <div class="contact-card" onclick="sendMessage(['+447306179724','+447706585678'], 'I like to place an order for a regular Flat White, please.')">
         <img src="assets/flat-white.jpg" alt="Contact 7">
         <p>Regular Flat White</p>
     </div>
-    <div class="contact-card" onclick="sendMessage('+0987654321', 'I like to place an order for a regular Tea, please.')">
+    <div class="contact-card" onclick="sendMessage(['+447306179724','+447706585678'], 'I like to place an order for a regular Tea, please.')">
         <img src="assets/tea.jpg" alt="Contact 8">
         <p>Regular Tea</p>
     </div>
@@ -63,10 +63,10 @@
 </div>
 
 <script>
-    function sendMessage(toNumbers, message) {
+     function sendMessage(toNumbers, message) {
         // Replace these with your Twilio credentials
         const accountSid = 'ACe65d10873d6c4b2d66720fa97997f239';
-        const authToken = 'bc624a87b059491e1d0dfd86f01fc4c9';
+        const authToken = '5f6b8aabdd3723432b717ec0307facb1';
         const twilioNumber = '+19897471793';
 
         toNumbers.forEach(toNumber => {
