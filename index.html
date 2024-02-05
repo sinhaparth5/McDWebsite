@@ -6,12 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Headington's Menu</title>
     <style>
+        /* Your existing styles remain unchanged */
         body {
-            font-family: Arial, sans-serif;
+            font-family: Speedee,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             background-color: #FFC836;
+            font-weight: 700;
         }
 
         .contact-card {
@@ -26,53 +28,92 @@
             border-radius: 50%;
             object-fit: cover;
         }
+
+        .order-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            color: white;
+            border: none;
+            cursor: pointer;
+            color: #292929;
+            text-align: center;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: #e5a500;
+        }
+
+        #order-comments {
+            margin-top: 10px;
+            width: 100%;
+            padding: 5px;
+        }
     </style>
 </head>
 <body>
 
 <div id="contacts">
-    <div class="contact-card" onclick="sendMessage(['+447306179724', '+447469690897'], 'I like to place an order for a regular Latte, please.')">
+    <div class="contact-card" onclick="addItem('Regular Latte')">
         <img src="./assets/latte.jpg" alt="Contact 1">
         <p>Regular Latte</p>
     </div>
 
-    <div class="contact-card" onclick="sendMessage(['+447306179724', '+447469690897'], 'I like to place an order for a regular Cappuccino, please.')">
+    <div class="contact-card" onclick="addItem('Regular Cappuccino')">
         <img src="assets/cappuccino.jpg" alt="Contact 3">
         <p>Regular Cappuccino</p>
     </div>
-    <div class="contact-card" onclick="sendMessage(['+447306179724', '+447469690897'], 'I like to place an order for a regular White Coffee, please.')">
+
+    <div class="contact-card" onclick="addItem('Regular White Coffee')">
         <img src="assets/white-coffee.jpg" alt="Contact 4">
         <p>Regular White Coffee</p>
     </div>
-    <div class="contact-card" onclick="sendMessage(['+447306179724', '+447469690897'], 'I like to place an order for a regular Black Coffee, please.')">
+    <div class="contact-card" onclick="addItem('Regular Black Coffee')">
         <img src="assets/black-coffee.jpg" alt="Contact 5">
         <p>Regular Black Coffee</p>
     </div>
-    <div class="contact-card" onclick="sendMessage(['+447306179724', '+447469690897'], 'I like to place an order for a regular Expresso, please.')">
+    <div class="contact-card" onclick="addItem('Regular Expresso')">
         <img src="assets/expresso.jpg" alt="Contact 6">
         <p>Regular Expresso</p>
     </div>
-    <div class="contact-card" onclick="sendMessage(['+447306179724', '+447469690897'], 'I like to place an order for a regular Flat White, please.')">
+    <div class="contact-card" onclick="addItem('Regular Flat White')">
         <img src="assets/flat-white.jpg" alt="Contact 7">
         <p>Regular Flat White</p>
     </div>
-    <div class="contact-card" onclick="sendMessage(['+447306179724', '+447469690897'], 'I like to place an order for a regular Tea, please.')">
+    <div class="contact-card" onclick="addItem('Regular Tea')">
         <img src="assets/tea.jpg" alt="Contact 8">
         <p>Regular Tea</p>
     </div>
-    <div class="contact-card" onclick="sendMessage(['+447306179724', '+447469690897'], 'I like to place an order for a regular Toffee Latte, please.')">
-        <img src="assets/toffee-latte.jpg" alt="Contact 8">
+    <div class="contact-card" onclick="addItem('Regular Toffee Latte')">
+        <img src="assets/toffee-latte.jpg" alt="Contact 9">
         <p>Regular Toffee Latte</p>
     </div>
-    <div class="contact-card" onclick="sendMessage(['+447306179724', '+447469690897'], 'I like to place an order for a Bottle of Water, please.')">
-        <img src="assets/water.jpg" alt="Contact 8">
-        <p>Bottle of Water</p>
+    <div class="contact-card" onclick="addItem('Hot Water')">
+        <img src="assets/hot-water.webp" alt="Contact 10">
+        <p>Hot Water</p>
     </div>
+    <div class="contact-card" onclick="addItem('Regular Hot Chocolate')">
+        <img src="assets/hot-chocolate.jpg" alt="Contact 11">
+        <p>Regular Hot Chocolate</p>
+    </div>
+     <div class="contact-card" onclick="addItem('Orange Juice Bottle')">
+        <img src="assets/orange-juice.jpg" alt="Contact 12">
+        <p>Orange Juice Bottle</p>
+    </div>
+
+
     <!-- Add more contact cards as needed -->
+    <textarea id="order-comments" placeholder="Add your comments"></textarea>
+    <div class="order-button" onclick="orderNow()">Order Now</div>
+
 </div>
 
 <script>
-     function sendMessage(toNumbers, message) {
+    const selectedItems = [];
+    function addItem(itemName) {
+        selectedItems.push(itemName);
+        alert(`Added ${itemName} to your order.`);
+    }
+
+    function sendMessage(toNumbers, message) {
         // Replace these with your Twilio credentials
         const accountSid = 'ACe65d10873d6c4b2d66720fa97997f239';
         const authToken = '5f6b8aabdd3723432b717ec0307facb1';
@@ -101,6 +142,24 @@
         });
 
         alert('Messages sent successfully!');
+    }
+
+    function orderNow() {
+        const orderComments = document.getElementById('order-comments').value;
+
+        if (!orderComments) {
+            alert('Please add your comments before ordering.');
+            return;
+        }
+
+        const itemsText = selectedItems.length > 0 ? `Selected Items: ${selectedItems.join('\n')}\n` : '';
+        const message = `${itemsText}Comments: ${orderComments}`;
+
+        const toNumbers = ['+447306179724', '+447469690898', '+447706585678']; // Add more numbers as needed
+        sendMessage(toNumbers, message);
+
+        // Clear selected items after placing the order
+        selectedItems.length = 0;
     }
 </script>
 
