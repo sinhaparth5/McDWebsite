@@ -109,12 +109,12 @@
 
 <script>
     const selectedItems = [];
-    const itemsText = selectedItems.length > 0 ? `Selected Items: ${selectedItems.join('\n')}\n` : '';
+
     function addItem(itemName) {
         selectedItems.push(itemName);
         alert(`Added ${itemName} to your order.`);
     }
-
+    const itemsText = selectedItems.length > 0 ? `Selected Items: ${selectedItems.join('\n')}\n` : '';
     function sendMessage(toNumbers, message) {
         // Replace these with your Twilio credentials
         const accountSid = 'ACe65d10873d6c4b2d66720fa97997f239';
