@@ -200,7 +200,10 @@
                     });
             });
 
-            alert(`Messages sent successfully!\n${message}`);
+            var confirmation = confirm(`Messages sent successfully!\n${message}`);
+            if (confirmation) {
+                document.getElementById("order-comments").value = "";
+            }
         }
 
         function orderNow() {
