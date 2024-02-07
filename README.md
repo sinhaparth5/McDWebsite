@@ -1,5 +1,7 @@
 # Headington McDonald's Private Website
 
+![Alt mcdLogo]('symbol-McDonalds.jpg')
+
 *Step to pull and use the website for testing or for further inprovememt purposes*
 
 Pull the repository on your code editor, eg. VS Code, Fleet, Sublime Text, etc.
