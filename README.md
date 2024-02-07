@@ -1,6 +1,6 @@
 # Headington McDonald's Private Website
 
-![Alt mcdLogo]('https://media.designrush.com/inspiration_images/134933/conversions/_1511456189_555_McDonald's-desktop.jpg')
+![Alt mcdLogo](https://media.designrush.com/inspiration_images/134933/conversions/_1511456189_555_McDonald's-desktop.jpg)
 
 *Step to pull and use the website for testing or for further inprovememt purposes*
 
