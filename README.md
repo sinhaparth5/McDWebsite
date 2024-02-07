@@ -10,7 +10,9 @@ _Steps to push the changed code to the repository_
 
 Step 1: Check the file which are changed(not mandatory, but good practice to see and get the path of the changed file)
 
-`git status`
+```Bash
+git status
+```
 
 Step 2: Add the files to git which are changed
 
