@@ -1,6 +1,6 @@
 # Headington McDonald's Private Website
 
-![Alt mcdLogo]('symbol-McDonalds.jpg')
+![Alt mcdLogo]('./symbol-McDonalds.jpg')
 
 *Step to pull and use the website for testing or for further inprovememt purposes*
 
