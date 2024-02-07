@@ -17,10 +17,12 @@ git status
 Step 2: Add the files to git which are changed
 
 Adding individual file: ```Bash
-git add <file name>```
+git add <file name>
+```
 
 Adding all the files shown in git status: ```Bash
-git add --all```
+git add --all
+```
 
 Step 3: Commit the changes
 
