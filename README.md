@@ -13,6 +13,7 @@ Step 1: Check the file which are changed(not mandatory, but good practice to see
 `git status`
 
 Step 2: Add the files to git which are changed
+
 Adding individual file: `git add <file name>`
 
 Adding all the files shown in git status: `git add --all`
