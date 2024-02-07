@@ -17,3 +17,11 @@ Step 2: Add the files to git which are changed
 Adding individual file: `git add <file name>`
 
 Adding all the files shown in git status: `git add --all`
+
+Step 3: Commit the changes
+
+`git commit -m "<comment>"`
+
+Step 4: Push the changes to the repository
+
+`git push`
