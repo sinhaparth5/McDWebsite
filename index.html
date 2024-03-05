@@ -136,12 +136,20 @@
         <textarea id="order-comments" placeholder="Add your comments"></textarea>
         <div class="order-button" onclick="orderNow()">Order Now</div>
     </div>
+    
 
     <script>
-        const selectedItems = [];
+         const selectedItems = [];
 
         function addItem(itemName) {
-            selectedItems.push(itemName);
+            const existingItemIndex = selectedItems.findIndex(item => item.name === itemName);
+
+            if (existingItemIndex !== -1) {
+                selectedItems[existingItemIndex].count++;
+            } else {
+                selectedItems.push({ name: itemName, count: 1 });
+            }
+
             updateSelectedItemsList();
             alert(`Added ${itemName} to your order.`);
         }
@@ -152,7 +160,7 @@
 
             selectedItems.forEach((item, index) => {
                 const listItem = document.createElement('li');
-                listItem.textContent = item;
+                listItem.textContent = `${item.name} x ${item.count}`; // Display item name and count
 
                 const removeButton = document.createElement('button');
                 removeButton.textContent = 'Remove';
@@ -166,7 +174,11 @@
         }
 
         function removeItem(index) {
-            selectedItems.splice(index, 1);
+            if (selectedItems[index].count > 1) {
+                selectedItems[index].count--;
+            } else {
+                selectedItems.splice(index, 1);
+            }
             updateSelectedItemsList();
         }
 
@@ -219,7 +231,7 @@
             const toNumbers = [
                 '+447306179724', 
                 //'+447469690897', //Sonata
-                '+447756952115', //Antonio
+                //'+447756952115', //Antonio
                 //'+447453275945' //Latifa
             ]; // Add more numbers as needed
             sendMessage(toNumbers, message);
