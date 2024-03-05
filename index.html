@@ -226,9 +226,10 @@
             const orderComments = document.getElementById('order-comments').value;
             const commentsText = orderComments.trim() !== '' ? `Comments: ${orderComments}` : 'Comments: N/A';
 
-            const itemsText = selectedItems.length > 0 ? `Selected Items:\n${selectedItems.join('\n')}\n` : '';
-            const message = `${itemsText}${commentsText}`;
+            // Map selectedItems to an array of strings, each string representing an item and its count
+            const itemsText = selectedItems.length > 0 ? `Selected Items:\n${selectedItems.map(item => `${item.name} x ${item.count}`).join('\n')}\n` : '';
 
+            const message = `${itemsText}${commentsText}`;
             const toNumbers = [
                 '+447306179724', 
                 //'+447469690897', //Sonata
