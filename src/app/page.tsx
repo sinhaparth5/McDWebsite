@@ -12,15 +12,8 @@ export default function Home() {
     const [textareaValue, setTextareaValue] = useState<string>('');
     const [showToast, setShowToast] = useState<boolean>(false);
     const [showSelectedItem, setShowSelectedItem] = useState<boolean>(false);
-    const [isVisible, setIsVisible] = useState(true);
-
-    useEffect(() => {
-        const timmer = setTimeout(() => {
-            setIsVisible(false);
-        }, 5000);
-
-        return () => clearTimeout(timmer);
-    }, []);
+    const [toastTimeout, setToastTimeout] = useState<ReturnType<typeof setTimeout> | null>(null);
+    const [selectedItemTimeout, setSelectedItemTimeout] = useState<ReturnType<typeof setTimeout> | null>(null);
 
     const handleItemClick = (itemName: string) => {
         setSelectedItems((prevItems) => {
@@ -29,6 +22,12 @@ export default function Home() {
             return newItems;
         });
         setShowSelectedItem(true);
+
+        if (selectedItemTimeout) clearTimeout(selectedItemTimeout);
+        const timeout = setTimeout(() => {
+            setShowSelectedItem(false);
+        }, 3000);
+        setSelectedItemTimeout(timeout);
     };
 
     const handleTextareaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -65,11 +64,15 @@ export default function Home() {
 
             // Show the toast notification
             setShowToast(true);
-
+            if (toastTimeout) clearTimeout(toastTimeout);
             // Clear the selected items and comments after successful submission
             setSelectedItems({});
             setTextareaValue('');
-
+            
+            const timeout = setTimeout(() => {
+                setShowToast(false);
+            }, 3000);
+            setToastTimeout(timeout);
             // Hide the toast notification after 5 seconds
             setTimeout(() => {
                 setShowToast(false);
@@ -114,7 +117,7 @@ export default function Home() {
         <main className="flex min-h-screen flex-col items-center justify-between p-24">
             {showSelectedItem && (
                 <div id="toast-default"
-                     className={`sticky top-16 flex items-center w-full max-w-xs p-4 text-black bg-green-400 rounded-lg shadow dark:text-gray-400 dark:bg-gray-800 ${isVisible? 'opacity-100' : 'opacity-0'} transition-opacity duration-300`}
+                     className={`sticky top-16 flex items-center w-full max-w-xs p-4 text-black bg-green-400 rounded-lg shadow dark:text-gray-400 dark:bg-gray-800 transition-opacity duration-300`}
                      role="alert">
                     <div
                         className="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-green-950 bg-green-400 rounded-lg dark:bg-blue-800 dark:text-blue-200">
@@ -130,7 +133,7 @@ export default function Home() {
             )}
             {showToast && (
                 <div id="toast-simple"
-                     className={`flex items-center w-full max-w-xs p-4 space-x-4 rtl:space-x-reverse text-black bg-green-400 divide-x rtl:divide-x-reverse divide-black rounded-lg shadow dark:text-gray-400 dark:divide-gray-700 dark:bg-gray-800 ${isVisible? 'opacity-100' : 'opacity-0'} transition-opacity duration-300`}
+                     className={`sticky top-16 flex items-center w-full max-w-xs p-4 space-x-4 rtl:space-x-reverse text-black bg-green-400 divide-x rtl:divide-x-reverse divide-black rounded-lg shadow dark:text-gray-400 dark:divide-gray-700 dark:bg-gray-800 transition-opacity duration-300`}
                      role="alert">
                     <svg className="w-5 h-5 text-black dark:text-blue-500 rotate-45" aria-hidden="true"
                          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
