@@ -13,7 +13,7 @@ export const EmailTemplate: React.FC<EmailTemplateProps> = ({
     <div style={{ fontFamily: 'Arial, sans-serif', maxWidth: '600px', margin: '0 auto' }}>
       <div style={{ backgroundColor: '#ff0000', padding: '20px', textAlign: 'center' }}>
         <h1 style={{ color: '#ffcc00', fontSize: '28px', margin: '0' }}>
-          McDonald's Order Notification
+          McDonald&apos;s Order Notification
         </h1>
       </div>
       

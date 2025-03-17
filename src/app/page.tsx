@@ -524,11 +524,11 @@ export default function Home() {
                     <div className="flex flex-col md:flex-row justify-between items-center">
                         <div className="flex items-center mb-4 md:mb-0">
                             <span className="text-3xl font-bold mr-2" style={{color: '#eebe46'}}>M</span>
-                            <span className="text-yellow-300">McDonald's</span>
+                            <span className="text-yellow-300">McDonald&apos;s</span>
                         </div>
-                        <p style={{color: '#eebe46'}}>© {new Date().getFullYear()} McDonald's Beverage Ordering System</p>
+                        <p style={{color: '#eebe46'}}>© {new Date().getFullYear()} McDonald&apos;s Beverage Ordering System</p>
                         <div className="flex items-center mt-4 md:mt-0">
-                            <span className="text-yellow-300 text-sm">I'm lovin' it</span>
+                            <span className="text-yellow-300 text-sm">I&apos;m lovin&apos; it</span>
                             <span className="text-xl ml-2" style={{color: '#eebe46'}}>™</span>
                         </div>
                     </div>

@@ -6,8 +6,6 @@ import EmailTemplate from '@/components/EmailTemplate';
 // Email recipients
 const EMAIL_RECIPIENTS = [
   'sinhaparth555@gmail.com',
-  'astrarecons.labs@gmail.com',
-  '19175526@brookes.ac.uk',
 ];
 
 type OrderData = {
