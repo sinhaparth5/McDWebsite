@@ -5,6 +5,13 @@ import EmailTemplate from '@/components/EmailTemplate';
 
 // Email recipients
 const EMAIL_RECIPIENTS = [
+  'sonata.vaicyte@hotmail.com',
+  'radoanecosmin@yahoo.com',
+  'lalit_b_thapa@live.com',
+  'munira_saidabdullah73@hotmail.com',
+  'shanacherukkatt1993@gmail.com',
+  'sotcramesh@gmail.com',
+  'akash_prasannan@yahoo.com',
   'sinhaparth555@gmail.com',
 ];
 
