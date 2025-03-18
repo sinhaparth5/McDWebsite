@@ -5,13 +5,10 @@ import EmailTemplate from '@/components/EmailTemplate';
 
 // Email recipients
 const EMAIL_RECIPIENTS = [
-  'radoanecosmin@yahoo.com',
-  'lalit_b_thapa@live.com',
-  'munira_saidabdullah73@hotmail.com',
-  'sotcramesh@gmail.com',
-  'akash_prasannan@yahoo.com',
-  'sinhaparth555@gmail.com',
-]; //'shanacherukkatt1993@gmail.com', 'sonata.vaicyte@hotmail.com',
+    '00505@uk.mcd.com',
+    'radoanecosmin@yahoo.com',
+    'lalitbdrthapamagar@gmail.com',
+];
 
 type OrderData = {
   items: { [key: string]: number };

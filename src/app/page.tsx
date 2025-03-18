@@ -519,7 +519,7 @@ export default function Home() {
             {/* Footer */}
             <div className="w-full bg-gradient-to-r from-red-700 to-red-600 text-center mt-16 py-6 relative shadow-inner" style={{backgroundColor: '#bf2a20'}}>
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-yellow-300 to-yellow-500"></div>
-                <div className="absolute inset-0 bg-[url('/arches-pattern.png')] opacity-5"></div>
+                <div className="absolute inset-0 bg-[url('/test.svg')] opacity-5"></div>
                 <div className="container mx-auto px-4">
                     <div className="flex flex-col md:flex-row justify-between items-center">
                         <div className="flex items-center mb-4 md:mb-0">
