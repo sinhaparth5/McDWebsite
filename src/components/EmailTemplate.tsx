@@ -3,11 +3,13 @@ import * as React from 'react';
 interface EmailTemplateProps {
   items: { [key: string]: number };
   comment: string;
+  orderDate: string;
 }
 
 export const EmailTemplate: React.FC<EmailTemplateProps> = ({
   items,
   comment,
+  orderDate,
 }) => {
   return (
     <div style={{ fontFamily: 'Arial, sans-serif', maxWidth: '600px', margin: '0 auto' }}>
@@ -51,7 +53,7 @@ export const EmailTemplate: React.FC<EmailTemplateProps> = ({
       
       <div style={{ backgroundColor: '#ffcc00', padding: '15px', textAlign: 'center' }}>
         <p style={{ margin: '0', color: '#333' }}>
-          Order received on {new Date().toLocaleString()}
+          Order received on {orderDate}
         </p>
       </div>
     </div>
