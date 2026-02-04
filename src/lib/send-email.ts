@@ -3,11 +3,12 @@
 import { Resend } from "resend";
 import EmailTemplate from "@/components/EmailTemplate";
 
-//    '00505@uk.mcd.com',
-//    'radoanecosmin@yahoo.com',
-//    'lalitbdrthapamagar@gmail.com',
 // Email recipients
-const EMAIL_RECIPIENTS = ["sinhaparth555@gmail.com"];
+const EMAIL_RECIPIENTS = [
+  "00505@uk.mcd.com",
+  "radoanecosmin@yahoo.com",
+  "lalitbdrthapamagar@gmail.com",
+];
 
 type OrderData = {
   items: { [key: string]: number };
@@ -59,4 +60,3 @@ export async function sendOrderEmails(
     };
   }
 }
-
