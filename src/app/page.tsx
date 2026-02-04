@@ -15,12 +15,18 @@ import { menuItems } from "@/data/menuItems";
 const CURRENT_YEAR = 2026;
 
 export default function Home() {
-  const [selectedItems, setSelectedItems] = useState<{ [key: string]: number }>({});
+  const [selectedItems, setSelectedItems] = useState<{ [key: string]: number }>(
+    {},
+  );
   const [textareaValue, setTextareaValue] = useState<string>("");
   const [showToast, setShowToast] = useState<boolean>(false);
   const [showSelectedItem, setShowSelectedItem] = useState<boolean>(false);
-  const [toastTimeout, setToastTimeout] = useState<ReturnType<typeof setTimeout> | null>(null);
-  const [selectedItemTimeout, setSelectedItemTimeout] = useState<ReturnType<typeof setTimeout> | null>(null);
+  const [toastTimeout, setToastTimeout] = useState<ReturnType<
+    typeof setTimeout
+  > | null>(null);
+  const [selectedItemTimeout, setSelectedItemTimeout] = useState<ReturnType<
+    typeof setTimeout
+  > | null>(null);
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
   const handleItemClick = (itemName: string) => {
@@ -89,16 +95,25 @@ export default function Home() {
       }
       return newItems;
     });
-    if (Object.keys(selectedItems).length === 1 && selectedItems[itemName] === 1) {
+    if (
+      Object.keys(selectedItems).length === 1 &&
+      selectedItems[itemName] === 1
+    ) {
       setShowSelectedItem(false);
     }
   };
 
-  const totalItems = Object.values(selectedItems).reduce((sum, count) => sum + count, 0);
+  const totalItems = Object.values(selectedItems).reduce(
+    (sum, count) => sum + count,
+    0,
+  );
 
   return (
     <main className="min-h-screen bg-[#F6F6F6]">
-      <ToastNotification showSelectedItem={showSelectedItem} showToast={showToast} />
+      <ToastNotification
+        showSelectedItem={showSelectedItem}
+        showToast={showToast}
+      />
 
       {/* Header */}
       <header className="bg-[#DA291C] py-4">
@@ -107,13 +122,15 @@ export default function Home() {
             <div className="w-10 h-10 relative">
               <Image
                 src="/products/logo.jpg"
-                alt="McDonald's"
+                alt="Headington's Menu"
                 fill
                 sizes="40px"
                 className="object-contain rounded"
               />
             </div>
-            <span className="text-white font-bold text-xl hidden sm:block">McDonald&apos;s</span>
+            <span className="text-white font-bold text-xl hidden sm:block">
+              Headington&apos;s Menu
+            </span>
           </div>
           <div className="flex items-center gap-2 bg-[#FFC72C] px-4 py-2 rounded-full">
             <ShoppingBag className="w-5 h-5 text-[#292929]" />
@@ -150,7 +167,9 @@ export default function Home() {
               {/* Order Header */}
               <div className="p-4 border-b border-gray-200">
                 <div className="flex items-center justify-between">
-                  <h2 className="text-lg font-bold text-[#292929]">Your Order</h2>
+                  <h2 className="text-lg font-bold text-[#292929]">
+                    Your Order
+                  </h2>
                   <span className="bg-[#FFC72C] px-3 py-1 rounded-full text-sm font-bold text-[#292929]">
                     {totalItems} {totalItems === 1 ? "item" : "items"}
                   </span>
@@ -180,7 +199,10 @@ export default function Home() {
 
               {/* Special Instructions */}
               <div className="p-4 border-t border-gray-200">
-                <Label htmlFor="message" className="text-sm font-medium text-[#292929]">
+                <Label
+                  htmlFor="message"
+                  className="text-sm font-medium text-[#292929]"
+                >
                   Special Instructions
                 </Label>
                 <Textarea
@@ -197,7 +219,9 @@ export default function Home() {
               <div className="p-4 border-t border-gray-200">
                 <Button
                   onClick={handleSubmit}
-                  disabled={isSubmitting || Object.keys(selectedItems).length === 0}
+                  disabled={
+                    isSubmitting || Object.keys(selectedItems).length === 0
+                  }
                   className="w-full bg-[#DA291C] hover:bg-[#bb2318] text-white font-bold py-3 rounded-full disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? "Sending..." : "Place Order"}
@@ -227,7 +251,9 @@ export default function Home() {
             <p className="text-gray-400 text-sm">
               © {CURRENT_YEAR} McDonald&apos;s. All rights reserved.
             </p>
-            <span className="text-[#FFC72C] text-sm font-medium">i&apos;m lovin&apos; it</span>
+            <span className="text-[#FFC72C] text-sm font-medium">
+              i&apos;m lovin&apos; it
+            </span>
           </div>
         </div>
       </footer>
